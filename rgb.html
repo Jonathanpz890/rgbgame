@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RGB Game</title>
+    <style>
+    body {
+        text-align: center;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin: 0;
+        background-color: #6ba8a9;
+    }  
+    .top {
+        width: 100%;
+        margin: 0;
+        background-color: #e5dfdf;
+        padding: 80px 0;
+        margin-bottom: 30px;
+    }
+    h1 {
+        font-size: 80px;
+        text-align: center;
+        margin: 0;
+    }
+    h2 {
+        position: absolute;
+        margin: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 200px;
+        color: red;
+        -webkit-text-stroke: 5px black;
+    }
+    h3 {
+        top: 10px;
+        left: 10px;
+        margin: 0;
+        text-align: left;
+        font-size: 30px;
+        position: absolute;
+        visibility: hidden;
+    }
+    #points {
+        left: 130px;
+    }
+    button {
+        position: absolute;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: 600;
+        top: 300px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 50px;
+        background-image: linear-gradient(to top right, rgb(30, 167, 30), rgb(25, 182, 25), rgb(11, 230, 11));
+        border-radius: 50px;
+        padding: 20px;
+        cursor: pointer;
+        box-shadow: 0px 5px rgb(8, 70, 8), 0px 10px 15px rgb(13, 165, 13);
+        border: 0;
+        z-index: 2;
+    }
+    button:hover {
+        background-image: linear-gradient(to top right, rgb(34, 202, 34), rgb(19, 228, 19), rgb(126, 248, 126));
+        cursor: pointer;
+    }
+    button:active {
+        box-shadow: 0px 0px, 0px 0px;
+        margin-top: 5px;
+    }
+    button:focus {
+        outline: 0;
+    }
+    #div-container {
+        width: 800px;
+        margin: auto;
+    }
+    .color-box {
+        width: 200px;
+        height: 200px;
+        border-radius: 25px;
+        display: inline-block;
+        margin: 20px 20px;
+        position: relative;
+        cursor: pointer;
+    }
+    .color-box-border {
+        border: 5px solid black;
+    }
+
+    @media screen and (max-width: 800px) {
+        h1 {
+            font-size: 60px;
+        }
+        .top {
+            padding: 60px 0;
+            margin-bottom: 100px;
+        }
+        h3 {
+            top: 10px;
+            left: 10px;
+            margin: 0;
+            text-align: left;
+            font-size: 25px;
+        }
+        #div-container {
+            width: 100%;
+        }
+        #points {
+            left: 110px;
+        }
+        .color-box {
+            width: 150px;
+            height: 150px;
+            border-radius: 25px;
+            display: inline-block;
+            margin: 20px 20px;
+            position: relative;
+            cursor: pointer;
+        }
+    }
+    @media screen and (max-width: 630px) {
+        h1 {
+            font-size: 50px;
+        }
+        .top {
+            padding: 40px 0;
+            margin-bottom: 30px;
+        }
+        h3 {
+            top: 10px;
+            left: 10px;
+            margin: 0;
+            text-align: left;
+            font-size: 25px;
+            position: absolute;
+            visibility: hidden;
+        }
+        #points {
+            left: 110px;
+        }
+        .color-box {
+            width: 150px;
+            height: 150px;
+            border-radius: 25px;
+            display: inline-block;
+            margin: 20px 20px;
+            position: relative;
+            cursor: pointer;
+        }
+
+    }
+    @media screen and (max-width: 470px) {
+        h1 {
+            font-size: 40px;
+        }
+        .top {
+            padding: 30px 0;
+            margin-bottom: 30px;
+        }
+        h3 {
+            top: 10px;
+            left: 10px;
+            margin: 0;
+            text-align: left;
+            font-size: 20px;
+            position: absolute;
+            visibility: hidden;
+        }
+        #points {
+            left: 90px;
+        }
+        .color-box {
+            width: 125px;
+            height: 125px;
+            border-radius: 25px;
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+        }
+
+    }
+    @media screen and (max-width: 380px) {
+        h1 {
+            font-size: 30px;
+        }
+        .top {
+            padding: 40px 0;
+            margin-bottom: 15px;
+        }
+        h3 {
+            top: 5px;
+            left: 5px;
+            margin: 0;
+            text-align: left;
+            font-size: 25px;
+            position: absolute;
+            visibility: hidden;
+        }
+        #points {
+            left: 110px;
+        }
+        .color-box {
+            width: 100px;
+            height: 100px;
+            border-radius: 25px;
+            display: inline-block;
+            margin: 10px;
+            position: relative;
+            cursor: pointer;
+        }
+
+    }
+    @media screen and (max-width: 320px) {
+        h1 {
+            font-size: 30px;
+        }
+        .top {
+            padding: 40px 0;
+            margin-bottom: 15px;
+        }
+        h3 {
+            top: 5px;
+            left: 5px;
+            margin: 0;
+            text-align: left;
+            font-size: 25px;
+            position: absolute;
+            visibility: hidden;
+        }
+        #points {
+            left: 110px;
+        }
+        .color-box {
+            width: 100px;
+            height: 100px;
+            border-radius: 25px;
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+        }
+
+    }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <h3>Points: </h3><h3 id="points">0</h3>
+        <h1>Welcome to the RGB Game</h1>
+    </div>
+    <button onclick="startGame()">Start Game!</button>
+    <div id="div-container">
+        <div onclick="checkAnswer()" class="color-box one"></div>
+        <div onclick="checkAnswer()" class="color-box two"></div>
+        <div onclick="checkAnswer()" class="color-box three"></div>
+        <div onclick="checkAnswer()" class="color-box four"></div>
+        <div onclick="checkAnswer()" class="color-box five"></div>
+        <div onclick="checkAnswer()" class="color-box six"></div>
+    </div>
+    <script>
+        var points = 0;
+        function startGame() {
+            document.querySelector("button").style.visibility = "hidden";
+            document.querySelector("h3").style.visibility = "visible";
+            document.querySelector("#points").style.visibility = "visible";
+            for (i = 0; i < 6; i++) {
+                document.querySelectorAll(".color-box")[i].classList.add("color-box-border");
+            }
+            document.querySelector("#points").innerHTML = points;
+            randomColorMain();
+            randomColorRest();
+        }
+        function nextLevel() {
+            document.querySelector("#points").innerHTML = points;
+            for (i = 0; i < 6; i++) {
+                document.querySelectorAll(".color-box")[i].innerHTML = "";
+            }
+            for (i = 0; i < 6; i++) {
+                document.querySelectorAll(".color-box")[i].style = "background-color: ;";
+            }
+            randomColorMain();
+            randomColorRest();
+        }
+        function randomColorMain() {
+            var number1 = Math.floor((Math.random() * 255) + 1);
+            var number2 = Math.floor((Math.random() * 255) + 1);
+            var number3 = Math.floor((Math.random() * 255) + 1);
+            var randomBox = Math.floor((Math.random() * 6));
+
+            document.querySelector("h1").innerHTML = "RGB(" + number1 + ", " + number2 + ", " + number3 + ")";
+
+            document.querySelectorAll(".color-box")[randomBox].style = "background-color: rgb(" + number1 + ", " + number2 + ", " + number3 + ");";
+        }   
+        function randomColorRest() {
+            for (i = 0; i < 6; i++) {
+                var number1 = Math.floor((Math.random() * 255) + 1);
+                var number2 = Math.floor((Math.random() * 255) + 1);
+                var number3 = Math.floor((Math.random() * 255) + 1);
+                var box = document.querySelectorAll(".color-box")[i].style.backgroundColor;
+                
+                if (box == "") {
+                    document.querySelectorAll(".color-box")[i].style = "background-color: rgb(" + number1 + ", " + number2 + ", " + number3 + ");";
+                } else {
+                    console.log("meow");
+                }
+            };
+        }
+        function checkAnswer() {
+            var clickedColor = event.target.style.backgroundColor;
+            var chosenColor = document.querySelector("h1").innerHTML.toLowerCase();
+
+
+            if (clickedColor == chosenColor) {
+                points++;
+                nextLevel();
+            } else {
+                event.target.innerHTML = "<h2>X</h2>";
+                document.querySelector("body").style.backgroundColor = "rgb(202, 80, 80)";
+                setTimeout(function() {
+                    document.querySelector("body").style.backgroundColor = "#6ba8a9";
+                }, 50);
+            }
+        }
+    </script>
+</body>
+</html>
